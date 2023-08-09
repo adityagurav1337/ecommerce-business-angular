@@ -1,0 +1,73 @@
+<div class="app-page-title">
+    <div class="page-title-wrapper">
+        <div class="page-title-heading">
+            <div>PRODUCT PICTURES</div>
+        </div>
+        <div class="page-title-actions">
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                <form [formGroup]="formdata" (ngSubmit)="submit(formdata.value)" class="">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="position-relative form-group">
+                                <label>TITLE<span class="text-danger">*</span></label>
+                                <input placeholder="TITLE" type="text" formControlName="title" class="form-control">
+                                <em class="error text-danger small"
+                                    *ngIf="formdata.controls.title.touched && formdata.controls.title.invalid">Please
+                                    Enter Title</em>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="position-relative form-group">
+                                <label>IMAGE<span *ngIf="id == 0" class="text-danger">*</span></label>
+                                <input placeholder="Picpath" id="imagename" type="file" (change)="imageChanged($event)"
+                                    class="form-control" >
+                            </div>
+                        </div>
+                    </div>
+                    <input type="submit" [disabled]="formdata.invalid" value="SAVE" class="btn btn-primary mr-2">
+                    <input type="reset" value="CANCEL" (click)="cancel()" class="btn btn-danger">
+                </form>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-12 mt-2">
+        <div class="card">
+            <div class="card-body">
+                <table class="table table-hover table-striped table-bordered">
+                    <thead class="text-center">
+                        <tr>
+                            <th style="width: 140px;" class="text-center">ACTION</th>
+                            <th style="width: 80px;" class="text-right">SR NO</th>
+                            <th class="text-left">TITLE</th>
+                            <th class="text-left">IMAGE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let data of productpictures; let i=index">
+                            <td class="text-center">
+
+                                <!-- <button data-toggle="tooltip" data-placement="top" title="Edit" (click)="edit(data.id)"
+                                    class="mb-2 mr-2 btn-icon btn-icon-only btn-pill btn btn-primary"><i
+                                        class="pe-7s-tools btn-icon-wrapper"> </i></button> -->
+                                <button (click)="delete(data.id)"
+                                    class="mb-2 mr-2 btn-icon btn-icon-only btn-pill btn btn-danger"><i
+                                        class="pe-7s-trash btn-icon-wrapper"> </i></button>
+                            </td>
+                            <td class="text-right">{{i+1}}</td>
+                            <td>{{data.title}}</td>
+                            <td><img src="{{api.baseurl + 'productpictures/' + data.imagename}}" style="height:80px;" /></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

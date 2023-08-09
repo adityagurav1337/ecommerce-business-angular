@@ -1,0 +1,38 @@
+<div class="app-page-title">
+    <div class="page-title-wrapper">
+        <div class="page-title-heading">
+            <div *ngIf="coupon">PRODUCTS FOR COUPON : {{ coupon.code }} </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12 mt-2">
+        <div class="card">
+            <div class="card-body">
+                <table class="table table-hover table-striped table-bordered">
+                    <thead class="text-center">
+                        <tr>
+                            <td style="width: 80px;"></td>
+                            <th style="width: 80px;" class="text-right">SR NO</th>
+                            <th class="text-left">NAME</th>
+                            <th class="text-left">IMAGE</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let data of products; let i=index">
+                                <td>
+                                    <label class="switch" >
+                                        <input type="checkbox" [checked]="data.cpid != 0" (change)="addRemoveProduct($event, data)">
+                                        <span class="slider round"></span>
+                                    </label>
+                                </td>
+                            <td class="text-right">{{i+1}}</td>
+                            <td>{{data.name}}</td>
+                            <td><img src="{{api.baseurl + 'products' + data.imagename}}" style="height:80px;" /></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

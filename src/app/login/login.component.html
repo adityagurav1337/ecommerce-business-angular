@@ -1,0 +1,75 @@
+<div class="app-container">
+    <div class="app-container">
+        <div class="h-100">
+            <div class="h-100 no-gutters row">
+                <div class="d-none d-lg-block col-lg-4">
+                    <div class="slider-light">
+                        <div class="slick-slider">
+                            <div>
+                                <div class="position-relative h-100 d-flex justify-content-center align-items-center bg-plum-plate"
+                                    tabindex="-1">
+                                    <div class="slide-img-bg" style="background-image: url('assets/images/back1.png');">
+                                    </div>
+                                    <div class="slider-content"
+                                        style="background-color: #111435;border-radius: 50px;padding:50px;">
+                                        <h3 class="text-center">
+                                            <img src="assets/images/igap.png" style="width:200px;" />
+                                            <!-- <p>iGAP Technologies Private Limited, is leading software development company which focuses on solving problems.</p> -->
+                                        </h3>
+                                        <p></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="h-100 d-flex justify-content-center align-items-center col-md-12 col-lg-8"
+                    style="background-color: #bdc1f2;">
+                    <div class="mx-auto app-login-box col-sm-12 col-md-10 col-lg-9">
+                        <div>
+                            <img src="assets/images/logo-inverse.png" style="height:100px;width:auto;" />
+                        </div>
+                        <div class="divider row"></div>
+                        <h4 class="mb-0">
+                            <span>BUSINESS, PLEASE SIGN IN TO YOUR ACCOUNT.</span>
+                        </h4>
+                        <div class="divider row"></div>
+                        <div>
+
+                            <form [formGroup]="formdata" (ngSubmit)="submit(formdata.value)">
+                                <div class="form-row">
+                                    <div class="col-md-12">
+                                        <span class="text-danger">{{message}}</span>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="position-relative form-group">
+                                            <label class="">EMAIL</label>
+                                            <input placeholder="EMAIL HERE..." type="email" formControlName="email"
+                                                class="form-control" autofocus>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="position-relative form-group">
+                                            <label for="examplePassword" class="">PASSWORD</label>
+                                            <input placeholder="PASSWORD HERE..." type="password"
+                                                formControlName="password" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="divider row"></div>
+                                <div class="d-flex align-items-center">
+                                    <div class="ml-auto">
+                                        <!-- <a href="javascript:void(0);" class="btn-lg btn btn-link">Recover Password</a> -->
+                                        <input type="submit" [disabled]="formdata.invalid"
+                                            class="btn btn-primary btn-lg" value="LOGIN TO DASHBOARD">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
